@@ -1,0 +1,31 @@
+/*Valentina Quezada*/
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+    float a,b,c,det,i,r1,r2;
+    cout<<"Inserte a: ";
+    cin>>a;
+    cout<<"Inserte b: ";
+    cin>>b;
+    cout<<"Inserte c: ";
+    cin>>c;
+    det=(b*b-4*a*c)/2*a;
+    r1=((-b+sqrt(det))/2*a);
+    r2=((-b-sqrt(det))/2*a);
+    if(a==0){
+        cout<<"Sin solución"<<endl;
+    }
+    if(det>=0){
+        cout<<"Solución Única 1: "<<r1<<endl;
+        cout<<"Solución Única 2: "<<r2<<endl;
+    }
+    else(det<0);{
+        i=sqrt(-det)/(2*a);
+        cout<<"Solución Imaginaria 1: "<<r1<<" + "<<i<<" i"<<endl;
+        cout<<"Solución Imaginaria 2: "<<r2<<" + "<<i<<" i"<<endl;
+    }
+
+    return 0;
+}
