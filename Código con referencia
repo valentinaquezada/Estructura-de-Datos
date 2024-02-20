@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+void menu();
+void potencia(float b, float e, float &p);
+int factorial(int f);
+float serie(float x, float n, float p);
+
+int main() {
+    int op;
+    do {
+        float b, e, p = 0;
+        cout << "***MENU***" << endl;
+        cout << "1. Potencia" << endl;
+        cout << "2. Factorial" << endl;
+        cout << "3. Serie" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Elige una opción: ";
+        cin >> op;
+        switch (op) {
+            case 1:
+                cout << "Ingrese la base: ";
+                cin >> b;
+                cout << "Ingrese el exponente: ";
+                cin >> e;
+                potencia(b, e, p);
+                cout << "El resultado de la potencia es: " << p << endl; // Mostramos p
+                break;
+            case 2:
+                int f;
+                cout << "Ingrese el número para realizar el factorial: ";
+                cin >> f;
+                cout << "El factorial es: " << factorial(f) << endl;
+                break;
+            case 3:
+                float x, n;
+                cout << "Ingrese el valor de x: ";
+                cin >> x;
+                cout << "Ingrese el valor de n: ";
+                cin >> n;
+                cout << "Ingrese el valor de p: ";
+                cin >> p;
+                cout << "El resultado de la serie es: " << serie(x, n, p) << endl;
+                break;
+            case 0:
+                cout << "Saliendo..." << endl;
+                break;
+            default:
+                cout << "Opcion no válida, ingrese una opción entre el 0 y el 3." << endl;
+        }
+    } while (op != 0);
+    return 0;
+}
+
+void potencia(float b, float e, float &p) {
+    p = 1;
+    if (e == 0) {
+        p = 1;
+    } else if (e < 0) {
+        for (int i = 0; i < e; i++) {
+            p *= b;
+        }
+        p = 1 / p;
+    } else {
+        for (int i = 0; i < e; i++) {
+            p *= b;
+        }
+    }
+}
+
+int factorial(int f) {
+    int fact = 1;
+    for (int i = 1; i <= f; i++)
+        fact *= i;
+    return fact;
+}
+
+float serie(float x, float n, float p) {
+    float suma = 0;
+    for (int i = 2; i <= n; i += 2)
+        suma = suma + p / factorial(i);
+    return suma+(3+x);
+}
